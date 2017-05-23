@@ -3,10 +3,13 @@ import sentiment_analysis
 import json
 
 #consumer key, consumer secret, access token, access secret.
-consumer_key = "r0duD297r3a0ReLjtJ6JDEiVw"
-consumer_secret = "ojhlKpG9B6yVWirsXCEZRLtdGJGu7R0BIXCeVP1iEdmVsmeUQC"
-access_token = "768849499686965248-KtfbtPDM4kugCjW8AZ79ZxgRnPjFcYh"
-access_token_secret = "KOG2Yz2bSoh8xZTPlez4JKtqkD9qeXM57yVFFx3PXRNDQ"
+consumer_key = "-------your consumer key----------"
+consumer_secret = "--------your consumer secret----------"
+access_token = "---------your access token---------"
+access_token_secret = "--------your access token secret---------"
+
+topic = "------the topic you want to get the tweets about------"
+
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -45,4 +48,4 @@ class MyStreamListener(tweepy.StreamListener):
 
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
-myStream.filter(track=['good'], async=True, languages=['en'])
+myStream.filter(track=[topic], async=True, languages=['en'])
